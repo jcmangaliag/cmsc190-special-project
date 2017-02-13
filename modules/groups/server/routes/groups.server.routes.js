@@ -6,6 +6,9 @@ const groupRoutes = app => {
     .get(groupCtrl.list)
     .post(groupCtrl.post);
 
+  app.route('/api/groups/mode')
+    .get(groupCtrl.getMode);
+
 };
 
 export default groupRoutes;
