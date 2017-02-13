@@ -1,0 +1,25 @@
+.post-ads {
+	padding: 2%;
+
+	&__title {
+		padding: 2%;
+		display: inline;
+	}
+
+	&__form {
+		padding: 2%;
+		text-align: left;
+	}
+
+	&__input-group{
+		margin-bottom: 15px;
+	}
+
+	&__file.post-ads {
+		display: none;
+	}
+
+	&__action {
+		padding-top: 8%;
+	}
+}
