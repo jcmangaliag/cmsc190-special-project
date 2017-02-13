@@ -1,8 +1,9 @@
 import _ from 'lodash';
+import jQuery from 'jquery';
 
 (() => {
 	'use strict';
-	
+
 	angular
 		.module('home')
 		.controller('LoggedInHomeController', LoggedInHomeController);
@@ -25,7 +26,7 @@ import _ from 'lodash';
 		LoggedInHomeService.getTask($scope);
 
 		$scope.homeClick = (homeChoices, buttonName) => {
-			
+
 			homeChoices.isEditing = !homeChoices.isEditing;
 			buttonName.btnName = buttonName.btnName == "Hide typed message"? "Show typed message" : "Hide typed message";
 		};
@@ -64,6 +65,16 @@ import _ from 'lodash';
 		$scope.onCancelClick = todo => {
 			todo.isEditing = false;
 		};
+
+        $scope.onLogin = result => {
+            jQuery('.modal').modal('hide');
+        }
+
+        $scope.form = 'default';
+        $scope.toggleForm = () => {
+            $scope.form = $scope.form == 'default' ? 'signup' : 'default';
+            console.log($scope.form);
+        }
 
 		const {createTask, updateTask, deleteTask, watchCreateTaskInput} = LoggedInHomeService;
 

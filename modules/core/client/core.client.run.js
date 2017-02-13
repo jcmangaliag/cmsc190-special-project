@@ -5,13 +5,13 @@ import coreModule from './core.client.packages';
 	'use strict';
 
 	angular.module('core', [
-		'home', 
-		'groups', 
-		'layout', 
-		'posts', 
-		'comments', 
+		'home',
+		'groups',
+		'layout',
+		'posts',
+		'comments',
 		'shared'
 	]);
-	
+
 	angular.bootstrap(document, ['core']);
 })();

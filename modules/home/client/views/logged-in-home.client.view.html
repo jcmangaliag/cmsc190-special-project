@@ -17,10 +17,10 @@
 		<a ui-sref="about" class="nav-link">About</a>
 		<h2 class="logged-in-home__title">PCAARRD KM Home Sass Test</h2>
 		<p class="logged-in-home__desc">An application that lets users talk in the virtual spaces. Users can also post photos, videos, and other files in the virtual spaces they joined.</p>
-		
+
 		<form>
-				<input class="form-control logged-in-home__create-input" 
-					placeholder="Angular Test" 
+				<input class="form-control logged-in-home__create-input"
+					placeholder="Angular Test"
 					ng-model="homeInput" />
 
 				<button class="btn btn-success logged-in-home__button" ng-click="homeClick(homeChoices[0], buttonName)">
@@ -33,11 +33,11 @@
 
 
 		<form ng-submit="createTask()">
-			<input class="form-control todos__create-input" 
-				placeholder="Angular, Express, MongoDB Test" 
+			<input class="form-control todos__create-input"
+				placeholder="Angular, Express, MongoDB Test"
 				ng-model="createTaskInput" />
 			<button class="btn btn-success todos__create-button">
-				Create Task 
+				Create Task
 			</button>
 		</form>
 
@@ -49,44 +49,44 @@
 		</tr>
 		<tr ng-repeat="todo in todos">
 			<td>
-				<input type="checkbox" 
-					class="todos__checkbox" 
-					ng-checked="todo.isCompleted" 
+				<input type="checkbox"
+					class="todos__checkbox"
+					ng-checked="todo.isCompleted"
 					ng-click="onCompletedClick(todo)" />
 			</td>
 			<td>
-				<span ng-if="!todo.isEditing" 
-					class="todos__task" 
-					ng-class="{'todos__task--completed': todo.isCompleted}"> 
-					{{todo.task}} 
+				<span ng-if="!todo.isEditing"
+					class="todos__task"
+					ng-class="{'todos__task--completed': todo.isCompleted}">
+					{{todo.task}}
 				</span>
 
 				<form ng-submit="updateTask(todo)">
-					<input ng-if="todo.isEditing" 
-						class="form-control todos__update-input" 
-						ng-value="todo.task" 
+					<input ng-if="todo.isEditing"
+						class="form-control todos__update-input"
+						ng-value="todo.task"
 						ng-model="todo.updatedTask" />
 				</form>
 			</td>
 			<td>
-				<button ng-if="!todo.isEditing" 
-					class="btn btn-info" 
+				<button ng-if="!todo.isEditing"
+					class="btn btn-info"
 					ng-click="onEditClick(todo)">
 					Edit
 				</button>
-				<button ng-if="!todo.isEditing" 
-					class="btn btn-danger" 
+				<button ng-if="!todo.isEditing"
+					class="btn btn-danger"
 					ng-click="deleteTask(todo)">
 					Delete
 				</button>
 
-				<button ng-if="todo.isEditing" 
-					class="btn btn-primary" 
+				<button ng-if="todo.isEditing"
+					class="btn btn-primary"
 					ng-click="updateTask(todo)">
 					Save
 				</button>
-				<button ng-if="todo.isEditing" 
-					class="btn btn-default" 
+				<button ng-if="todo.isEditing"
+					class="btn btn-default"
 					ng-click="onCancelClick(todo)">
 					Cancel
 				</button>
@@ -96,6 +96,93 @@
 
 		<a ui-sref="bananaGroup.about">Go to a sample Banana Group!</a>
 	</div>
-  </div>
-</div>
 
+    <a href="#" class="community-api btn btn-default" data-toggle="modal" data-target=".auth-prompt">
+        <img src="home/client/assets/images/community.png" width="50" height="50"/>
+        <h5 class="api-label">Community</h5>
+    </a>
+
+    <div class="modal fade auth-prompt" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Wait a second...</h4>
+                </div>
+
+                <div class="modal-body row">
+                    <div class="col-xs-5 login" ng-switch on="form">
+                        <form ng-switch-default>
+                            <strong><h2>You are not logged in.</h2></strong>
+                            <br />
+                            <div class="form-group">
+                                <label for="community-email">Email address</label>
+                                <input type="email" class="form-control" id="community-email" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="community-pass">Password</label>
+                                <input type="password" class="form-control" id="community-pass" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <button ui-sref="bananaGroup" type="submit" class="btn btn-success" ng-click="onLogin()">Sign in</button>
+                                <a class="btn btn-social btn-facebook">Sign in with Facebook</a>
+                            </div>
+
+                            <p>Don't have an account? <a href="#" ng-click="toggleForm()">Register</a></p>
+                        </form>
+
+                        <form ng-switch-when="signup">
+                            <strong><h2>Join us today.</h2></strong>
+                            <br />
+                            <div class="form-group row">
+                                <div class="col-xs-9">
+                                    <label for="first">Name</label>
+                                    <input class="form-control" id="first" placeholder="First Name">
+                                </div>
+                                <div class="col-xs-3">
+                                    <label for="mi">&nbsp</label>
+                                    <input class="form-control" id="mi" placeholder="MI" maxlength="2">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="last" placeholder="Last Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="community-email">Email address</label>
+                                <input type="email" class="form-control" id="community-email" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="community-pass">Password</label>
+                                <input type="password" class="form-control" id="community-pass" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <button ui-sref="bananaGroup" type="submit" class="btn btn-success" ng-click="onLogin()">Submit</button>
+                            </div>
+
+                            <p>Already have an account? <a href="#" ng-click="toggleForm()">Sign in</a></p>
+                        </form>
+                    </div>
+
+                    <div class="col-xs-6 info">
+                        <strong><p>Join the Community now</p></strong>
+                        <p>
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true" style="font-size:15px"></span>
+                            Connect with your peers.
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true" style="font-size:15px"></span>
+                            Share your ideas.
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true" style="font-size:15px"></span>
+                            Interact through posts and comments.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
