@@ -1,13 +1,30 @@
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import mongoose from 'mongoose';
+import session from 'express-session';
+import passport from 'passport';
+
 import config from './config/core.server.config';
 import moduleRoutes from './routes/core.server.routes';
+import passportConfig from './config/core.server.passport';
+
+mongoose.connect('mongodb://localhost/todos');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(session({
+    secret: 'darkfire09',
+    resave: true,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
+passportConfig(passport);
 moduleRoutes(app);
 
 app.use(express.static(__dirname + '/../../'));

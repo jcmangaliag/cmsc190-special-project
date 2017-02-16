@@ -6,3 +6,4 @@ import layoutModule from '../../layout/client/layout.client.packages';
 import postModule from '../../posts/client/posts.client.packages';
 import commentModule from '../../comments/client/comments.client.packages';
 import sharedModule from '../../shared/client/shared.client.packages';
+import userModule from '../../user/client/user.client.packages';

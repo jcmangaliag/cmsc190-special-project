@@ -1,0 +1,56 @@
+<div class="container">
+    <img src="/user/client/assets/images/community.jpg" class="img-responsive backdrop" style="z-index: -100"/>
+
+    <div class="login-curtain">
+    </div>
+
+    <div class="row login-content">
+        <div class="col-xs-6 login-content__info">
+            <p class="login-content__header">PCAARRD Community</p>
+            <p>Allows its users to post and communicate through the ISPs recognized by DOST-PCAARRD.</p>
+        </div>
+
+        <div class="col-xs-4 col-xs-offset-2 login-content__form" ng-switch on="form">
+            <form style="padding-top: 40px" ng-switch-default>
+                <div class="form-group">
+                    <label for="community-email">Email address</label>
+                    <input ng-model="login.email" type="email" class="form-control login-content__form-control" id="community-email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="community-pass">Password</label>
+                    <input ng-model="login.password" type="password" class="form-control login-content__form-control" id="community-pass" placeholder="Password">
+                </div>
+                <div class="form-group" style="padding-top:10px;">
+                        <button class="btn btn-success col-xs-3" style="height: 40px;" ng-click="login()">Sign in</button>
+                        <p class="col-xs-7">Don't have an account? <a href="#" ng-click="toggleForm()">Register</a></p>
+                </div>
+            </form>
+
+            <form style="padding-top: 30px" ng-switch-when="signup">
+                <div class="form-group row">
+                    <div class="col-xs-5">
+                        <label for="first">Name</label>
+                        <input ng-model="reg.firstName" class="form-control login-content__form-control" id="first" placeholder="First Name">
+                    </div>
+                    <div class="col-xs-7" style="padding-left: 0px;">
+                        <label for="last">&nbsp</label>
+                        <input ng-model="reg.lastName" class="form-control login-content__form-control" id="last" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="community-email ">Email address</label>
+                    <input ng-model="reg.email" type="email" class="form-control login-content__form-control" id="community-email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="community-pass">Password</label>
+                    <input ng-model="reg.password" type="password" class="form-control login-content__form-control" id="community-pass" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success col-xs-3" style="height: 40px" ng-submit="register()">Submit</button>
+                    <p class="col-xs-7">Already have an account? <a href="#" ng-click="toggleForm()">Sign in</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

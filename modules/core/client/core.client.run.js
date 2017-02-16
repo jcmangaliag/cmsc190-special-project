@@ -10,7 +10,8 @@ import coreModule from './core.client.packages';
 		'layout',
 		'posts',
 		'comments',
-		'shared'
+		'shared',
+        'user'
 	]);
 
 	angular.bootstrap(document, ['core']);
