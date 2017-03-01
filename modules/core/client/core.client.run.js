@@ -15,4 +15,5 @@ import coreModule from './core.client.packages';
 	]);
 
 	angular.bootstrap(document, ['core']);
+
 })();

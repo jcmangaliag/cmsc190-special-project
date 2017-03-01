@@ -7,6 +7,7 @@ import session from 'express-session';
 import passport from 'passport';
 
 import config from './config/core.server.config';
+import mongoDB from './config/core.server.db';
 import moduleRoutes from './routes/core.server.routes';
 import passportConfig from './config/core.server.passport';
 

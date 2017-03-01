@@ -25,15 +25,12 @@ const PostSchema = mongoose.Schema({
 		type: Array,
 		required: true
 	},
-	thumbsUpUsers: Array,
-	happyUsers: Array,
-	sadUsers: Array,
-	angryUsers: Array,
 	question: String,
 	description: String,
 	files: Array,
 	adTitle: String,
-	details: String
+	details: String,
+	post: String
 });
 
 export default mongoose.model('Post', PostSchema);

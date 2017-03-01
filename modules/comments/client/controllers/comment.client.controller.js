@@ -12,8 +12,12 @@ import _ from 'lodash';
 
 	function CommentController ($scope, CommentService, PostService) {
 		$scope.addCommentFormData = {};
-		const {submitComment} = CommentService;
+		const {submitComment, setCommentReaction} = CommentService;
 		$scope.submitComment = _.partial(submitComment);
+		$scope.setCommentReaction = _.partial(setCommentReaction);
+		$scope.userid = CommentService.userid;	// temporary userid
+
+		$scope.comments = CommentService.getCommentList();
 		
 		$scope.onProcessCommentData = (postID) => {
 			$scope.addCommentFormData.referredPost = postID;
@@ -22,30 +26,30 @@ import _ from 'lodash';
 			$scope.addCommentFormData.reactions = [
 				{ 
 				  name: "thumbsUp", 
-				  count: 0 
+				  count: 0,
+				  users: [] 
 				},
 				{ 
 				  name: "happy", 
-				  count: 0 
+				  count: 0,
+				  users: [] 
 				},
 				{ 
 				  name: "sad", 
-				  count: 0 
-				},
-				{ 
-				  name: "angry", 
-				  count: 0 
+				  count: 0,
+				  users: [] 
 				}
 			];
 
 			// hardcoded as of now, should be Object ID
-			$scope.addCommentFormData.commentedBy = "John Doe";
-
+			$scope.addCommentFormData.commentedBy = "Mark Eric Cabanli";
 			$scope.submitComment(_.cloneDeep($scope.addCommentFormData));
-			PostService.setReaction($scope, 0);
+			PostService.setPostReaction($scope, $scope.selectedPost, 0);
+			$scope.addCommentFormData = null;
+			$scope.clearHashtags();
 		}
 
-		CommentService.getComments($scope);
+		CommentService.getComments();
 	}
 
 })();
