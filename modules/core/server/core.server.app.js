@@ -11,8 +11,6 @@ import mongoDB from './config/core.server.db';
 import moduleRoutes from './routes/core.server.routes';
 import passportConfig from './config/core.server.passport';
 
-mongoose.connect('mongodb://localhost/todos');
-
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
