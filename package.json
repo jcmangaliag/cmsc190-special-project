@@ -16,7 +16,7 @@
     "KM",
     "Community"
   ],
-  "author": "Juan Carlo Mangaliag",
+  "author": "Juan Carlo Mangaliag, Simon Barrameda",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jcmangaliag/PCAARRD-KM-Community/issues"
@@ -32,7 +32,9 @@
     "babel-polyfill": "^6.23.0",
     "body-parser": "^1.16.1",
     "bootstrap-sass": "^3.3.7",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.1",
+    "express-session": "^1.15.1",
     "font-awesome": "^4.7.0",
     "font-awesome-sass-loader": "^1.0.3",
     "jquery": "^3.1.1",
@@ -41,7 +43,10 @@
     "moment": "^2.17.1",
     "mongoose": "^4.8.4",
     "ng-files-model": "^1.0.4",
-    "ng-toast": "^2.0.0"
+    "ng-toast": "^2.0.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
